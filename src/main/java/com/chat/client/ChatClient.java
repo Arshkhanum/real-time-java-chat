@@ -32,8 +32,19 @@ public class ChatClient {
             System.out.println(input.readLine());
             System.out.println(input.readLine());
 
-            socket.close();
+            BufferedReader keyboard = new BufferedReader(
+                    new InputStreamReader(System.in)
+            );
 
+            System.out.println("Type a message:");
+
+            String message = keyboard.readLine();
+
+            output.println(message);
+
+            System.out.println(input.readLine());
+
+            socket.close();
         } catch (IOException e) {
 
             System.out.println(

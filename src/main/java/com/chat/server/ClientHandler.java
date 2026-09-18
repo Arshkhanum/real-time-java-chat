@@ -30,6 +30,14 @@ public class ClientHandler implements Runnable {
 
             output.println("Welcome, " + username + "!");
             output.println("You are now connected to the server.");
+            String message;
+
+            while ((message = input.readLine()) != null) {
+
+                System.out.println(username + ": " + message);
+
+                output.println("Server received: " + message);
+            }
 
         } catch (IOException e) {
 
