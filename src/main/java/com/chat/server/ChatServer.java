@@ -5,19 +5,39 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ChatServer {
-    private static final int PORT = 5000;
 
     public static void main(String[] args) {
-        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-            System.out.println("Chat server started on port " + PORT);
+
+        int port = 5000;
+
+        try (ServerSocket serverSocket = new ServerSocket(port)) {
+
+            System.out.println("=================================");
+            System.out.println("     REAL-TIME JAVA CHAT");
+            System.out.println("=================================");
+            System.out.println("Server started on port " + port);
+            System.out.println("Waiting for clients...");
 
             while (true) {
-                try (Socket clientSocket = serverSocket.accept()) {
-                    System.out.println("Client connected: " + clientSocket.getRemoteSocketAddress());
-                }
+
+                Socket clientSocket = serverSocket.accept();
+
+                System.out.println("New client connected!");
+
+                ClientHandler clientHandler =
+                        new ClientHandler(clientSocket);
+
+                Thread clientThread =
+                        new Thread(clientHandler);
+
+                clientThread.start();
             }
-        } catch (IOException exception) {
-            System.err.println("Unable to start or run the chat server: " + exception.getMessage());
+
+        } catch (IOException e) {
+
+            System.out.println(
+                    "Server error: " + e.getMessage()
+            );
         }
     }
 }

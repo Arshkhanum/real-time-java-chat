@@ -1,1 +1,3 @@
 com/chat/server/ChatServer.class
+com/chat/client/ChatClient.class
+com/chat/server/ClientHandler.class
