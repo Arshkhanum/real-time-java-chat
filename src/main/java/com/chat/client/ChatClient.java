@@ -7,7 +7,7 @@ public class ChatClient {
 
     public static void main(String[] args) {
 
-        String serverAddress = "localhost";
+        String serverAddress = "127.0.0.1";
         int port = 5000;
 
         try {
