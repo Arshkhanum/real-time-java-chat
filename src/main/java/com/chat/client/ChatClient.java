@@ -32,13 +32,9 @@ public class ChatClient {
             System.out.println(input.readLine());
             System.out.println(input.readLine());
 
-            BufferedReader keyboard = new BufferedReader(
-                    new InputStreamReader(System.in)
-            );
+            String message = "Hello from Arshiya";
 
-            System.out.println("Type a message:");
-
-            String message = keyboard.readLine();
+            System.out.println("Sending message: " + message);
 
             output.println(message);
 
